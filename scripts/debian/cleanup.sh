@@ -27,6 +27,18 @@ dpkg --list \
     | grep -- '-dev$' \
     | xargs apt-get -y purge;
 
+# Delete Exim
+#dpkg --list \
+#    | awk '{ print $2 }' \
+#    | grep exim4 \
+#    | xargs apt-get -y purge;
+
+# Delete GCC
+#dpkg --list \
+#    | awk '{ print $2 }' \
+#    | grep gcc \
+#    | xargs apt-get -y purge;
+
 # Delete X11 libraries
 apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6;
 
@@ -34,7 +46,8 @@ apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6;
 apt-get -y purge ppp pppconfig pppoeconf;
 
 # Delete oddities
-apt-get -y purge popularity-contest;
+apt-get -y purge popularity-contest
+#apt-get -y purge popularity-contest ispell mutt man_db whois;
 
 apt-get -y autoremove;
 apt-get -y clean;

@@ -187,6 +187,10 @@
     {
       "output": "builds/{{user `box_basename`}}.{{.Provider}}.box",
       "type": "vagrant"
+    },
+    {
+	"type": "compress",
+	"keep_input_artifact": true
     }
   ],
   "provisioners": [
@@ -217,6 +221,7 @@
         "scripts/debian/cleanup.sh",
         "scripts/common/minimize.sh"
       ],
+      "pause_before": "10s",
       "type": "shell"
     }
   ],
